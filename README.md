@@ -1,6 +1,6 @@
 # bash_history_backup
 
-A Script (and a configuration change to .bashrc) to update the format of the history (to include date and time) and backup the history content to a file.
+A Script to backup the history content to a file.
 
 Table of Contents
 =================
@@ -11,38 +11,33 @@ Table of Contents
 
 
 ## Overview
-===========
+A Script (and a configuration change to .bashrc) to update the format of the history (to include date and time) and backup the history content to a file.
 
 ## Download
-===========
 From GitHub using
 ```
 git clone https://github.com/m2a2/bash_history_backup.git
 ```
 
 ## Setup 
-========
-## Create Backup directory
+### Create Backup directory
 - The script assumes the following folder name 'history_backups'
 - Note: you can specify another backup folder, if you prefer another folder perform the update in the next step
 ```
 mkdir history_backups
 ```
  
-### (optional) Update "HISTORY_BACKUPS" folder backup_history.sh
-- if you prefer a different backup folder update it in the backup_history.sh script
+#### (optional) Update backup_folder in backup_history.sh
+- if you prefer a different backup folder 
+- update the path "./history_backups" in the backup_history.sh script (line 9)
 
-
-## Edit .bashrc to use same history file over all sessions and add a timestamp to the history
-
+### Edit .bashrc to use same history file over all sessions and add a timestamp to the history
 ```
 vi ~/.bashrc
 ```
 
-
 ```
 HISTCONTROL=ignoreboth:erasedups
-
 # append to the history file, don't overwrite it
 shopt -s histappend
 
@@ -57,13 +52,16 @@ shopt -s histappend
 
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 ```
+
 #### Note: The PROMPT_COMMAND environment variable
 Bash provides an environment variable called PROMPT_COMMAND. The contents of this variable are executed as a regular Bash command just before Bash displays a prompt.
 
 ## Usage
-
+```
+backup_history.sh
+```
 ## Todo List 
-- Todo Convert the manual edit (of .bashrc) to a 'setup script'
+- Convert the manual edit (of .bashrc) to a 'setup script'
 
 ## References
 - https://gist.github.com/patientzero/39496387237d85c8d29d209d29957f52
