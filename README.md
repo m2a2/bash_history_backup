@@ -20,34 +20,36 @@ git clone https://github.com/m2a2/bash_history_backup.git
 ```
 
 ## Setup 
-### Create Backup directory
+### Setup using setup_script
+```
+cd setup
+./setup_history_backup.sh
+```
+### Manual setup
+#### Create Backup directory
 - The script assumes the following folder name 'history_backups'
 - Note: you can specify another backup folder, if you prefer another folder perform the update in the next step
 ```
 mkdir history_backups
 ```
  
-#### (optional) Update backup_folder in backup_history.sh
+##### (optional) Update backup_folder in backup_history.sh
 - if you prefer a different backup folder 
 - update the path "./history_backups" in the backup_history.sh script (line 9)
 
-### Edit .bashrc to use same history file over all sessions and add a timestamp to the history
+#### Edit .bashrc to use same history file over all sessions and add a timestamp to the history
 ```
 vi ~/.bashrc
 ```
 
 ```
 HISTCONTROL=ignoreboth:erasedups
-# append to the history file, don't overwrite it
-shopt -s histappend
-
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
 HISTFILESIZE=10000
-
 HISTTIMEFORMAT="%F %T "
 
-# append to history, don't overwrite it
+# append to the history file, don't overwrite it
 shopt -s histappend
 
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"

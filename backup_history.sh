@@ -7,4 +7,4 @@ HISTFILE=~/.bash_history
 set -o history
 # yesterday="date -d yesterday +%y/%m/%d"
 # history | grep $($yesterday) > ./history_backups/bash_history_$(hostname)_$(date -d "yesterday" +%y-%m-%d).txt
-history > ./history_backups/bash_history_$(hostname)_$(date +%y-%m-%d_%H%M).txt
+history >./history_backups/bash_history_$(hostname)_$(date +%y-%m-%d_%H%M).txt
