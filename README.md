@@ -45,7 +45,7 @@ shopt -s histappend
 HISTSIZE=10000
 HISTFILESIZE=10000
 
-HISTTIMEFORMAT="%y/%m/%d %T "
+HISTTIMEFORMAT="%F %T "
 
 # append to history, don't overwrite it
 shopt -s histappend
